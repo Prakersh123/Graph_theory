@@ -68,13 +68,14 @@ class Graph{
         edgelist.push_back({w,x,y});
     }
 
+        //O(ElogE + E)= O(ElogE)
     int kruskal_mst(){
 
-        sort(edgelist.begin(),edgelist.end());
+        sort(edgelist.begin(),edgelist.end());    //ElogE
         DSU s(V);
         int sum =0 ;
 
-        for(auto edge: edgelist)
+        for(auto edge: edgelist)            //O(E)
         {
             int w = edge[0];
             int x = edge[1];
