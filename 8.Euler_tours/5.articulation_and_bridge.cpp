@@ -31,14 +31,20 @@ void dfs(vector<int> adj[],bool visited[],int s, int parent,int & count,int dp[]
     if(s!=0)
     for(auto u: adj[s])
     {
-        if(dp[u]>=time[s])
-        {
-            articulation.push_back(s);
-            break;
-        }
+        
         if(dp[u]>time[s])
         {
             bridge.push_back(s);
+            bridge.push_back(u);
+
+            articulation.push_back(s);
+         
+            break;
+        }
+        else if(dp[u]==time[s])
+        {
+            articulation.push_back(s);
+        
             break;
         }
     }
@@ -47,6 +53,7 @@ void dfs(vector<int> adj[],bool visited[],int s, int parent,int & count,int dp[]
         articulation.push_back(0);
     
     }
+    
 }
 
 int main()
